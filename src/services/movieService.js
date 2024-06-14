@@ -1,4 +1,5 @@
 const movies = [{
+  _id: 1,
      title: 'fbfd',
 genre: 'dd',
 director: 'ee',
@@ -14,6 +15,8 @@ exports.getAll =() =>{
 
 
 exports.create = (movieData) =>{
+
+  movieData._id = movies[movies.length - 1]._id + 1;
   movies.push(movieData);
     
 };

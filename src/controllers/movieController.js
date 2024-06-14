@@ -23,5 +23,4 @@ router.get('/movies/:movieId', (req, res) => {
     res.render('details', { movie });
 });
 
-
 module.exports = router;

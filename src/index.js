@@ -1,23 +1,15 @@
-const exp = require('constants');
 const express = require('express');
-const handlebars = require('express-handlebars');
-const path = require('path');
 
+const configHandlebars = require('./config/configHandlebars');
+const configExpress = require('./config/configExpress')
 const routes = require('./routes');
 
 const app = express();
 const port = 5000;
 
-app.engine('hbs', handlebars.engine({
-    extname: 'hbs',
-}));
-app.set('view engine', 'hbs');
-app.set('views', path.join(__dirname, 'views'));
-app.use(express.static(path.join(__dirname, 'public')));
+configHandlebars(app);
+configExpress(app);
 
 app.use(routes);
 
-// app.get('/', (req, res) => {
-//     res.render('home', { layout: false });
-// });
 app.listen(port, () => console.log(`Server is listening on port ${port}...`));

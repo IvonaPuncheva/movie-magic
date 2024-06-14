@@ -15,5 +15,7 @@ router.get('/404', (req, res) =>{
     res.render('404')
     });
 
-
+router.get('/movies/:movieId', (req, res) =>{
+res.render('details');
+});
 module.exports = router;
